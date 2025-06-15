@@ -1,0 +1,1071 @@
+:root {
+    --primary-color: #d80000;
+    --secondary-color: #000000; /* Dark background */
+    --text-color: #ffffff; /* Light text */
+    --accent-color: #d80000;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --bg-color: var(--secondary-color);
+    --card-bg-color: #616060; /* Dark card background */
+    --text-dark: #000000;
+    --bg-light: #ffffff;
+    --github-btn-default: #6c757d; /* Grey for GitHub button default */
+}
+
+/* Light Mode Variables */
+.light-mode {
+    --primary-color: #d80000; /* Stays the same for accent */
+    --secondary-color: #ffffff; /* Light background */
+    --text-color: #333333; /* Darker text for light mode */
+    --accent-color: #d80000; /* Stays the same */
+    --bg-color: var(--secondary-color); /* Will be light */
+    --card-bg-color: #e0e0e0; /* Lighter card background */
+    --text-dark: #000000; /* Can remain black for elements that need strong contrast */
+    --bg-light: #ffffff; /* Can remain white */
+    --github-btn-default: #929292; /* Slightly darker grey for light mode */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme changes */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    border-bottom: 2px solid var(--primary-color);
+    height: 72px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 201;
+    transition: color 0.3s ease;
+}
+
+/* HAMBURGER MENU ICON STYLING */
+.nav-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animation for hamburger icon to 'X' */
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- Theme Toggle Button Styles --- */
+.theme-toggle-button {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    /* Adjusted padding for icon-only button */
+    padding: 0.5rem; /* Make it a square */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    /* Adjusted margin and alignment for desktop */
+    margin-left: 1.5rem;
+    width: 40px; /* Fixed width for icon-only button */
+    height: 40px; /* Fixed height for icon-only button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.theme-toggle-button:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-light);
+}
+
+.theme-toggle-button .theme-icon {
+    width: 20px; /* Larger icon size for better visibility */
+    height: 20px;
+    filter: invert(100%) brightness(100%); /* Makes icon white in dark mode */
+    transition: filter 0.3s ease;
+}
+
+/* For light mode, invert the filter to make it dark */
+.light-mode .theme-toggle-button .theme-icon {
+    filter: invert(0%) brightness(0%); /* Makes icon black in light mode */
+}
+
+/* Hide sun icon by default (dark mode) */
+.theme-toggle-button .sun-icon {
+    display: none;
+}
+
+/* Show sun icon and hide moon icon in light mode */
+.light-mode .theme-toggle-button .moon-icon {
+    display: none;
+}
+.light-mode .theme-toggle-button .sun-icon {
+    display: block;
+}
+
+/* Hide the button-text span since we want only icons */
+.theme-toggle-button .button-text {
+    display: none;
+}
+/* --- End Theme Toggle Button Styles --- */
+
+
+#intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 2rem 4rem 2rem;
+    background: var(--secondary-color);
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 80vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.intro-left {
+    flex: 1;
+    color: var(--text-color);
+    padding-right: 2rem;
+    transition: color 0.3s ease;
+}
+
+.intro-left .name {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    line-height: 1.1;
+}
+
+.name .surname {
+    display: block;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.name .given-name {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.intro-left .subtitle {
+    font-size: 1.2rem;
+    max-width: 400px;
+}
+
+.intro-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.intro-right img {
+    width: 30vw;
+    height: auto;
+    animation: slideInFromLeft 1.5s ease forwards;
+}
+
+#projects {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.projects-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: #1a1a1a; /* Specific dark background for card */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding: 0.8rem;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+    color: var(--text-color);
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.light-mode .project-card {
+    background-color: var(--card-bg-color); /* Use light mode card bg */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover {
+    box-shadow: 0 8px 16px rgba(216, 0, 0, 0.3);
+}
+
+.project-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+}
+
+.project-card:hover img {
+    filter: grayscale(0%);
+}
+
+.project-card h3 {
+    margin-bottom: 0.4rem;
+    color: var(--primary-color);
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+}
+
+.project-btn {
+    display: flex; /* Use flexbox for icon and text alignment */
+    align-items: center; /* Vertically align items */
+    justify-content: center; /* Center content horizontally */
+    padding: 0.5rem 1.2rem;
+    background-color: transparent; /* Make background transparent by default */
+    color: var(--github-btn-default); /* Default text color is grey */
+    border-radius: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid transparent; /* Changed border to transparent */
+    gap: 0.5rem; /* Space between icon and text */
+}
+
+.project-btn img {
+    width: 18px; /* Size of the GitHub icon */
+    height: 18px;
+    /* Default filter to make the GitHub icon match the grey text color */
+    filter: invert(47%) sepia(0%) saturate(1%) hue-rotate(185deg) brightness(97%) contrast(85%); /* This filter makes it grey */
+    margin-bottom: 0; /* Remove default image margin */
+    transition: filter 0.3s ease; /* Add transition for smooth filter change */
+}
+
+/* Light mode specific filter for the GitHub icon */
+.light-mode .project-btn img {
+    /* Adjust for light mode's default grey button color */
+    filter: invert(56%) sepia(0%) saturate(1%) hue-rotate(185deg) brightness(97%) contrast(85%); /* This filter makes it a slightly darker grey for light mode */
+}
+
+.project-btn:hover {
+    background-color: transparent; /* Keep background transparent on hover */
+    color: var(--primary-color); /* Red text on hover */
+    border-color: transparent; /* Keep border transparent on hover */
+}
+
+.project-btn:hover img {
+    /* Filter to make the GitHub icon red on hover */
+    filter: invert(13%) sepia(99%) saturate(6970%) hue-rotate(357deg) brightness(100%) contrast(106%); /* This filter makes it red */
+}
+
+#skills {
+    padding: 3rem 2rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skills-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.skills-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    color: var(--text-color);
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+}
+
+.skill-img-container {
+    background-color: #333; /* Specific dark background for skill image container */
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.light-mode .skill-img-container {
+    background-color: #f0f0f0; /* Lighter background for light mode */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skill:hover .skill-img-container {
+    box-shadow: 0 0 8px rgba(216, 0, 0, 0.7), 0 0 15px rgba(216, 0, 0, 0.5);
+}
+
+.skill img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.skill:hover img {
+    transform: scale(1.2);
+}
+
+#about {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    min-height: auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.about-left {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.about-left img.profile-img {
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+}
+
+.about-container {
+    background-color: var(--card-bg-color); /* Uses variable */
+    flex: 0 0 70%;
+    max-width: 70%;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.about-right h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.about-right p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.about-right ul {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-top: 0;
+    list-style: disc inside;
+    font-weight: 400;
+}
+
+.about-right ul li {
+    margin-bottom: 0.3rem;
+}
+
+.btn-wrapper {
+    text-align: right;
+}
+
+.about-btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+    width: auto;
+    white-space: nowrap;
+}
+
+.about-btn:hover {
+    background-color: #d62828;
+}
+
+.what-i-do-section {
+    background: var(--bg-color);
+    padding: 1.5rem 1rem;
+    max-width: 900px;
+    margin: 1.5rem auto;
+    color: var(--text-color);
+    min-height: auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.what-i-do-section h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.what-i-do-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+}
+
+.what-i-do-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--card-bg-color); /* Uses variable */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    min-height: 260px;
+}
+
+.what-i-do-card:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+    color: var(--text-color); /* Ensure text remains readable on hover */
+}
+
+/* Specific text color for elements inside what-i-do-card when in light mode */
+.light-mode .what-i-do-card h3,
+.light-mode .what-i-do-card p {
+    color: var(--text-color); /* Use the updated text-color for light mode */
+}
+
+.what-i-do-card h3 {
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.what-i-do-card p {
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+
+.what-i-do-card img {
+    max-width: 60px;
+    height: auto;
+    display: block;
+    margin: 0 auto 0.8rem;
+    filter: grayscale(100%) invert(0%); /* Ensure it looks good in dark mode */
+    transition: filter 0.3s ease;
+}
+
+.light-mode .what-i-do-card img {
+    filter: grayscale(100%) invert(0%); /* Maintain grayscale in light mode too, unless specified otherwise */
+}
+
+.what-i-do-card:hover img {
+    filter: grayscale(0%);
+}
+
+.what-i-do-btn {
+    display: inline-block;
+    margin-top: auto;
+    padding: 0.4rem 1rem;
+    color: var(--text-dark); /* This should be dark in light mode, black in dark mode */
+    background-color: transparent;
+    border: 2px solid var(--text-dark);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+}
+
+.light-mode .what-i-do-btn {
+    color: var(--text-color); /* Darker text for light mode button */
+    border-color: var(--text-color); /* Darker border for light mode button */
+}
+
+.what-i-do-btn:hover {
+    color: var(--bg-light); /* Will be white */
+    background-color: var(--text-dark); /* Will be black */
+    border-color: var(--text-dark); /* Will be black */
+}
+
+.what-i-do-card:hover .what-i-do-btn {
+    color: var(--text-color); /* White text when card is hovered, for primary color background */
+    border-color: var(--text-color); /* White border when card is hovered */
+    background-color: transparent;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    transition: color 0.3s ease;
+}
+
+.contact-container h2 {
+    text-align: left;
+    margin: 0 0 1rem 0;
+    color: var(--text-color);
+}
+
+.contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.left-fields {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.right-field {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-field textarea {
+    flex-grow: 1;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-btn {
+    margin: 1.2rem auto 0.5rem;
+    display: block;
+    width: 160px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #a10000;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    background-color: var(--bg-light); /* Input background should be light */
+    color: var(--text-dark); /* Input text should be dark */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.light-mode .form-group input,
+.light-mode .form-group textarea {
+    background-color: #f8f8f8; /* Slightly off-white for inputs in light mode */
+    border-color: #aaaaaa;
+}
+
+footer.footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-align: center;
+    border-top: 2px solid var(--primary-color);
+    position: relative;
+    font-size: 0.85rem;
+    line-height: 1.1;
+    margin-top: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-top-color 0.3s ease;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.download-cv-btn {
+    display: block;
+    width: 140px;
+    margin: 0.5rem auto 10px;
+    padding: 0.6rem 1rem;
+    font-weight: 700;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.download-cv-btn:hover {
+    background-color: #a10000;
+    text-decoration: none;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 8px;
+}
+
+.footer-socials a img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1); /* Makes colored icons white in dark mode */
+    transition: filter 0.3s ease;
+}
+
+.light-mode .footer-socials a img {
+    filter: brightness(0) invert(0); /* Makes colored icons black in light mode */
+}
+
+.footer-socials a:hover img {
+    filter: brightness(0) invert(0.7); /* Slightly gray on hover for feedback */
+}
+
+.footer-texts {
+    text-align: left;
+    min-width: 160px;
+    margin-top: 6px;
+}
+
+.footer-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+}
+
+.footer-note {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: #ccc;
+    margin-top: 6px;
+}
+
+.light-mode .footer-note {
+    color: #666; /* Darker grey for light mode footer note */
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    nav ul {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background-color: var(--secondary-color);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        z-index: 200;
+        padding-bottom: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    nav ul.active {
+        display: flex;
+    }
+    nav ul li {
+        margin: 0.8rem 0;
+    }
+    #intro {
+        flex-direction: column;
+        padding-top: 5rem;
+        height: auto;
+        min-height: auto;
+    }
+    .intro-left,
+    .intro-right {
+        flex: 1 1 100%;
+        padding: 0;
+        text-align: center;
+    }
+    .intro-left .name {
+        font-size: 2.2rem;
+    }
+    .name .surname {
+        font-size: 2.8rem;
+    }
+    .name .given-name {
+        font-size: 1.6rem;
+    }
+    .intro-left .subtitle {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+    .intro-right img {
+        width: 70vw;
+        margin-top: 1.5rem;
+    }
+    #about {
+        flex-direction: column;
+        padding: 2.5rem 1rem;
+        min-height: auto;
+    }
+    .about-left,
+    .about-container {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .about-left {
+        margin-bottom: 1.5rem;
+    }
+    .about-left img.profile-img {
+        border-radius: 8px;
+        max-width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+    .about-container {
+        padding: 0.8rem;
+    }
+    .about-right h2 {
+        font-size: 2rem;
+        text-align: left;
+    }
+    .about-right p,
+    .about-right ul {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+    .btn-wrapper {
+        text-align: right;
+    }
+    .about-btn {
+        width: auto;
+        max-width: none;
+        margin: 0.8rem 0 0 0;
+    }
+    .contact-form {
+        flex-direction: column;
+        align-items: center;
+    }
+    .left-fields,
+    .right-field {
+        width: 90%;
+        flex: none;
+    }
+    .submit-btn {
+        width: 150px;
+        margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Mobile adjustments for theme toggle button */
+    .theme-toggle-button {
+        margin-left: 0; /* Remove left margin */
+        margin-right: auto; /* Push it to the left */
+        order: -2; /* Make it appear before the logo */
+        padding: 0.4rem; /* Even smaller padding when only the icon is visible */
+        width: 32px; /* Fixed width for a square-like button when only icon is visible */
+        height: 32px; /* Fixed height for a square-like button when only icon is visible */
+        border-radius: 50%; /* Keep it round on mobile */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header {
+        justify-content: space-between; /* Maintain space distribution */
+    }
+
+    .theme-toggle-button .button-text {
+        display: none; /* Hide the "Toggle Theme" text on small screens */
+    }
+
+    .theme-toggle-button .theme-icon { /* Smaller icon size on mobile */
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Adjust logo and nav-toggle positioning */
+    .logo {
+        flex-grow: 1; /* Allow logo to take up remaining space */
+        text-align: center; /* Center the logo if needed, or adjust as desired */
+    }
+
+    .nav-toggle {
+        order: 1; /* Place nav-toggle on the right */
+        margin-left: auto; /* Push it to the far right */
+    }
+}
+
+@media (max-width: 1000px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .project-card:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        margin-top: 0.8rem;
+        max-width: 450px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 601px) {
+    .what-i-do-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        justify-content: center;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .what-i-do-card {
+        width: 100%;
+        max-width: 240px;
+        margin: 0 auto;
+    }
+    .what-i-do-card:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        margin-top: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    .project-card:nth-child(3) {
+        grid-column: auto;
+        justify-self: stretch;
+        margin-top: 0;
+        max-width: 100%;
+    }
+    .what-i-do-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        place-items: center;
+    }
+    .what-i-do-grid .what-i-do-card {
+        width: 95%;
+        max-width: 320px;
+    }
+    .what-i-do-card {
+        min-height: auto;
+        padding: 0.8rem;
+    }
+    .what-i-do-card h3 {
+        font-size: 1.2rem;
+    }
+    .what-i-do-card p {
+        font-size: 0.8rem;
+    }
+    .what-i-do-card img {
+        max-width: 45px;
+    }
+    .what-i-do-btn {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.85rem;
+    }
+    .about-right h2 {
+        font-size: 1.5rem;
+    }
+    .about-right p,
+    .about-right ul {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 400px) {
+    #projects {
+        padding: 2.5rem 1rem;
+    }
+    .project-card img {
+        height: 100px;
+    }
+    .project-card p {
+        font-size: 0.85rem;
+    }
+    .project-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    #about {
+        padding: 1.5rem 1rem;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}

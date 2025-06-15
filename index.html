@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="header">
+  <div class="logo">JM</div>
+  
+  <nav class="nav">
+    <ul class="nav-links" id="main-nav">
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#what-i-do">What I Do</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle light/dark theme">
+    <img src="Image/moon.svg" alt="Dark Mode" class="theme-icon moon-icon" />
+    <img src="Image/sun.svg" alt="Light Mode" class="theme-icon sun-icon" />
+    <span class="button-text"></span>
+  </button>
+  
+  <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+</header>
+
+    <main id="intro" class="main-section">
+        <div class="intro-left">
+            <h1 class="name">
+                <span class="surname">Martin</span>
+                <span class="given-name">John&nbsp;Mike&nbsp;G.</span>
+            </h1>
+            <p class="subtitle">
+                Bachelor of Science in Information Technology with a Specialization in Mobile &amp; Web Applications
+            </p>
+        </div>
+        <div class="intro-right">
+            <img src="Image/Motor.svg" alt="Motor Image" />
+        </div>
+    </main>
+
+    <section class="what-i-do-section" id="what-i-do">
+        <div class="what-i-do-container">
+            <h2>What I Do</h2><br>
+            <div class="what-i-do-grid">
+                <div class="what-i-do-card" id="task1">
+                    <img src="Image/web.svg" alt="Web Development">
+                    <h3>Web Development</h3>
+                    <p>I create responsive and dynamic websites using HTML, CSS, JavaScript, and backend tools.</p>
+                    <a href="https://en.wikipedia.org/wiki/Web_development#:~:text=Web%20development%20is%20the%20work,businesses%2C%20and%20social%20network%20services." target="_blank" class="what-i-do-btn">Learn More</a>
+                </div>
+                <div class="what-i-do-card" id="task2">
+                    <img src="Image/mobdev.png" alt="Mobile App Development">
+                    <h3>Mobile App Development</h3>
+                    <p>Specialized in building Android apps using Java.</p>
+                    <a href="https://en.wikipedia.org/wiki/Mobile_app_development" target="_blank" class="what-i-do-btn">Learn More</a>
+                </div>
+                <div class="what-i-do-card" id="task3">
+                    <img src="Image/uiux.png" alt="UI/UX Design">
+                    <h3>UI/UX Design</h3>
+                    <p>I design intuitive user interfaces that offer smooth and enjoyable user experiences.</p>
+                    <a href="https://flatironschool.com/blog/what-is-ux-ui-design/" target="_blank" class="what-i-do-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-left">
+            <img src="Image/Binondo.jpg" alt="Photo of JM" class="profile-img" />
+        </div>
+        <div class="about-container with-profile">
+            <div class="about-right" id="about-container">
+                <h2>About Me</h2>
+                <p>
+                    Yow! I’m John Mike G. Martin (JM), an aspiring mobile and web app developer currently studying at National University – MOA.
+                    I love building cool apps, learning new stuff every day, and I’m excited to see where this tech journey takes me!
+                </p>
+                <ul>
+                    <li><b>Name:</b> Martin, John Mike G.</li>
+                    <li><b>Birthday:</b> December 17, 2004</li>
+                    <li><b>Age:</b> 20</li>
+                    <li><b>Address:</b> Parañaque City</li>
+                </ul>
+                <div class="btn-wrapper">
+                    <a href="https://jm-mrtn.github.io/AboutMe/" class="about-btn">More About Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+        <div class="skills-container">
+            <h2>My Skills</h2><br>
+            <div class="skills-logos">
+                <div class="skill"><div class="skill-img-container"><img src="Image/java.svg" alt="Java logo"></div><p>Java</p></div>
+                <div class="skill"><div class="skill-img-container"><img src="Image/python.png" alt="Python logo"></div><p>Python</p></div>
+                <div class="skill"><div class="skill-img-container"><img src="Image/html5.svg" alt="HTML5 logo"></div><p>HTML</p></div>
+                <div class="skill"><div class="skill-img-container"><img src="Image/css3.svg" alt="CSS3 logo"></div><p>CSS</p></div>
+                <div class="skill"><div class="skill-img-container"><img src="Image/javascript.svg" alt="JavaScript logo"></div><p>JavaScript</p></div>
+                <div class="skill"><div class="skill-img-container"><img src="Image/mysql.svg" alt="MySQL logo"></div><p>MySQL</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+        <div class="projects-container">
+            <h2>My Projects</h2><br>
+            <div class="projects-grid">
+                <div class="project-card" id="project1">
+                    <img src="Image/Project_1.png" alt="Screenshot of Project 1">
+                    <h3>My Portfolio</h3>
+                    <p>Mobile And Web Portfolio</p>
+                    <a href="https://jm-mrtn.github.io/WebProject/" target="_blank" class="project-btn"><img src="Image/github.svg" alt="GitHub">View in Github</a>
+                </div>
+                <div class="project-card" id="project2">
+                    <img src="Image/About_Me.png" alt="Screenshot of Project 2">
+                    <h3>About Me</h3>
+                    <p>What's About Me</p>
+                    <a href="https://jm-mrtn.github.io/AboutMe/" target="_blank" class="project-btn"><img src="Image/github.svg" alt="GitHub">View in Github</a>
+                </div>
+                <div class="project-card" id="project3">
+                    <img src="Image/Eevee.png" alt="Screenshot of Project 3">
+                    <h3>Eevee's Profile</h3>
+                    <p>My Eevee's Profile</p>
+                    <a href="https://jm-mrtn.github.io/Eevee/" target="_blank" class="project-btn"><img src="Image/github.svg" alt="GitHub">View in Github</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-container" id="contact">
+        <h2>Contact Me</h2>
+        <form class="contact-form" action="https://formsubmit.co/martinjohnmike101@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            
+            <div class="left-fields">
+                <div class="form-group">
+                    <label for="name">Name</label>  
+                    <input type="text" id="name" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email" required />
+                </div>
+            </div>
+            <div class="right-field">
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn" id="sendMessageBtn">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <h2 class="footer-title">Want To Know More?</h2>
+            <a href="JM_Resume.pdf" download class="download-cv-btn">Download CV</a>
+            <div class="footer-row">
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/share/1AjLzr7wJp/?mibextid=wwXIfr" target="_blank" rel="noopener"><img src="Image/fblogo.svg" alt="Facebook icon" /></a>
+                    <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F_u%2Fjm.mrtn%3Figsh%3DMWo0Y2RycXNwZTlybA%253D%253D%26utm_source%3Dqr%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExaEpRZWRDcm5PSU4walRXTwEeEo0laB8yFCTFex3gkO0mMp5YUbjY-Sb7G4iwFzanb_epn7plk1hzIp-6QJY_aem_TXTOsaCy7hgKbWPRy_vzYQ&h=AT0A7n_o02-9sLsRG1pnHxY_wgMNgNkkeDHpq7X3DabemiuaF33g_GVcLxieSeK0F4JMkaQYUkyLwEBUywO8jR4cSh5Z4LputMWenzdmy8aUkxHjCwcrYTKH-O6Em2aX" target="_blank" rel="noopener"><img src="Image/iglogo.svg" alt="Instagram icon" /></a>
+                    <a href="https://www.tiktok.com/@jm_mrtn?_t=ZS-8xC8BNk3VKM&_r=1" target="_blank" rel="noopener"><img src="Image/tiktoklogo.svg" alt="TikTok icon" /></a>
+                    <a href="mailto:martinjohnmike101@gmail.com" target="_blank" rel="noopener"><img src="Image/mail.svg" alt="Mail icon" /></a>
+                    <a href="https://github.com/JM-Mrtn" target="_blank" rel="noopener"><img src="Image/github.svg" alt="Github icon" /></a>
+                </div>
+                <div class="footer-texts">
+                    <p class="footer-name">&copy; 2025 @JOHN MIKE G. MARTIN</p>
+                    <p class="footer-note">This Project was made with Hardwork and Love.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
